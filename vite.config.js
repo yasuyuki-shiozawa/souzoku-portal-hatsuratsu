@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()]  base: 
-'/',ouzoku-portal-hatsuratsu/',  resolve: {
+'/souzoku-portal-hatsuratsu/',ouzoku-portal-hatsuratsu/',  resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
