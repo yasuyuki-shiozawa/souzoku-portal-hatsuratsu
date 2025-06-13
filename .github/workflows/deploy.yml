@@ -26,12 +26,12 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
-        cache-dependency-path: package-lock.json
+        cache-dependency-path: souzoku-portal/package-lock.json
         
     - name: Install dependencies
       run: |
         cd souzoku-portal
-        npm install
+        npm ci
         
     - name: Build
       run: |
