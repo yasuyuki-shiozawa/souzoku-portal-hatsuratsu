@@ -18,7 +18,12 @@ import {
   MessageCircle,
   Star,
   CheckCircle,
-  TrendingUp
+  TrendingUp,
+  Calculator,
+  HelpCircle,
+  BookOpen,
+  Search,
+  ChevronRight
 } from 'lucide-react';
 import heroImage from './assets/hero-image.jpg';
 import './App.css';
@@ -38,8 +43,9 @@ function App() {
             <nav className="hidden md:flex space-x-8">
               <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">サービス</a>
               <a href="#regional-info" className="text-gray-700 hover:text-blue-600 transition-colors">地域情報</a>
-              <a href="#seminars" className="text-gray-700 hover:text-blue-600 transition-colors">セミナー</a>
+              <a href="#tools" className="text-gray-700 hover:text-blue-600 transition-colors">便利ツール</a>
               <a href="#experts" className="text-gray-700 hover:text-blue-600 transition-colors">専門家紹介</a>
+              <a href="#knowledge" className="text-gray-700 hover:text-blue-600 transition-colors">相続知識</a>
               <a href="#company" className="text-gray-700 hover:text-blue-600 transition-colors">会社概要</a>
               <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">お問い合わせ</a>
             </nav>
@@ -188,6 +194,57 @@ function App() {
         </div>
       </section>
 
+      {/* Interactive Tools Section */}
+      <section id="tools" className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">便利ツール</h2>
+            <p className="text-lg text-gray-600">相続に関する計算や手続きをサポートするツール</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <Calculator className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                <CardTitle className="text-center">相続税簡易計算</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4">相続財産の概算額から相続税を簡易計算</p>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  計算を開始
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <CheckCircle className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                <CardTitle className="text-center">手続きチェックリスト</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4">相続手続きの進捗を管理できるチェックリスト</p>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  チェックリストを見る
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <Building className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                <CardTitle className="text-center">不動産査定依頼</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4">相続不動産の無料査定をオンラインで依頼</p>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  査定を依頼
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -236,6 +293,239 @@ function App() {
                 <p className="text-gray-600">複雑な相続手続きを専門家がサポート</p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Experts Section */}
+      <section id="experts" className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">専門家紹介</h2>
+            <p className="text-lg text-gray-600">神奈川県央地区の信頼できる専門家ネットワーク</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-10 w-10 text-blue-600" />
+                </div>
+                <CardTitle>税理士</CardTitle>
+                <CardDescription>相続税申告・節税対策</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">対応件数</span>
+                    <span className="font-semibold">年間200件+</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">平均経験年数</span>
+                    <span className="font-semibold">15年</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">得意分野</span>
+                    <span className="font-semibold text-sm">相続税・贈与税</span>
+                  </div>
+                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
+                    税理士に相談
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="h-10 w-10 text-blue-600" />
+                </div>
+                <CardTitle>司法書士</CardTitle>
+                <CardDescription>不動産登記・遺産分割</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">対応件数</span>
+                    <span className="font-semibold">年間150件+</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">平均経験年数</span>
+                    <span className="font-semibold">12年</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">得意分野</span>
+                    <span className="font-semibold text-sm">相続登記・遺言</span>
+                  </div>
+                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
+                    司法書士に相談
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-10 w-10 text-blue-600" />
+                </div>
+                <CardTitle>弁護士</CardTitle>
+                <CardDescription>遺産分割協議・相続争い</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">対応件数</span>
+                    <span className="font-semibold">年間100件+</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">平均経験年数</span>
+                    <span className="font-semibold">18年</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">得意分野</span>
+                    <span className="font-semibold text-sm">相続争い・調停</span>
+                  </div>
+                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
+                    弁護士に相談
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+              <Users className="h-5 w-5 mr-2" />
+              すべての専門家を見る
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Knowledge Section */}
+      <section id="knowledge" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">相続知識ライブラリ</h2>
+            <p className="text-lg text-gray-600">相続に関する基礎知識から実践的な情報まで</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <BookOpen className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle className="text-lg">基礎知識</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続とは何か
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続の流れ
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続人の範囲
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    法定相続分
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <Calculator className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle className="text-lg">相続税</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続税の仕組み
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    基礎控除額
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    税率と計算方法
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    節税対策
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <FileText className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle className="text-lg">手続き</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    死亡届の提出
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続放棄
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    遺産分割協議
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続登記
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <HelpCircle className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle className="text-lg">よくある質問</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    相続税はいくらから？
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    遺言書は必要？
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    不動産の評価方法
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="h-4 w-4 mr-2" />
+                    専門家への依頼時期
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <BookOpen className="h-5 w-5 mr-2" />
+              知識ライブラリを見る
+            </Button>
           </div>
         </div>
       </section>
