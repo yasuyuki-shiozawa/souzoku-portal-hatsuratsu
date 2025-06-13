@@ -23,16 +23,25 @@ import {
   HelpCircle,
   BookOpen,
   Search,
-  ChevronRight
+  ChevronRight,
+  Menu,
+  X,
+  ArrowRight,
+  PlayCircle,
+  Download,
+  ExternalLink
 } from 'lucide-react';
 import heroImage from './assets/hero-image.jpg';
 import './App.css';
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState('');
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -40,7 +49,9 @@ function App() {
               <span className="text-xl font-bold text-gray-900">相続ナビ</span>
               <span className="text-sm text-gray-500 ml-2">株式会社はつらつ</span>
             </div>
-            <nav className="hidden md:flex space-x-8">
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex space-x-6">
               <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">サービス</a>
               <a href="#regional-info" className="text-gray-700 hover:text-blue-600 transition-colors">地域情報</a>
               <a href="#tools" className="text-gray-700 hover:text-blue-600 transition-colors">便利ツール</a>
@@ -49,11 +60,56 @@ function App() {
               <a href="#company" className="text-gray-700 hover:text-blue-600 transition-colors">会社概要</a>
               <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">お問い合わせ</a>
             </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <Phone className="h-4 w-4 mr-2" />
-              無料相談
-            </Button>
+
+            {/* Search Bar */}
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <input
+                  type="text"
+                  placeholder="サイト内検索..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+              <Button className="bg-blue-600 hover:bg-blue-700">
+                <Phone className="h-4 w-4 mr-2" />
+                無料相談
+              </Button>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 hover:text-blue-600"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden border-t border-gray-200 py-4">
+              <nav className="flex flex-col space-y-4">
+                <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">サービス</a>
+                <a href="#regional-info" className="text-gray-700 hover:text-blue-600 transition-colors">地域情報</a>
+                <a href="#tools" className="text-gray-700 hover:text-blue-600 transition-colors">便利ツール</a>
+                <a href="#experts" className="text-gray-700 hover:text-blue-600 transition-colors">専門家紹介</a>
+                <a href="#knowledge" className="text-gray-700 hover:text-blue-600 transition-colors">相続知識</a>
+                <a href="#company" className="text-gray-700 hover:text-blue-600 transition-colors">会社概要</a>
+                <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">お問い合わせ</a>
+                <div className="pt-4 border-t border-gray-200">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Phone className="h-4 w-4 mr-2" />
+                    無料相談
+                  </Button>
+                </div>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
@@ -621,6 +677,252 @@ function App() {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Seminar Booking Section */}
+      <section id="seminar-booking" className="py-20 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">セミナー予約システム</h2>
+            <p className="text-lg text-gray-600">相続に関する無料セミナーをオンラインで予約</p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Calendar className="h-5 w-5 mr-2 text-green-600" />
+                  開催予定セミナー
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="border-l-4 border-green-500 pl-4">
+                    <h4 className="font-semibold">相続税の基礎知識セミナー</h4>
+                    <p className="text-sm text-gray-600">2025年6月20日（金）14:00-16:00</p>
+                    <p className="text-sm text-gray-500">会場：大和市文化創造拠点シリウス</p>
+                    <Button size="sm" className="mt-2 bg-green-600 hover:bg-green-700">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      予約する
+                    </Button>
+                  </div>
+                  <div className="border-l-4 border-blue-500 pl-4">
+                    <h4 className="font-semibold">不動産相続の実務セミナー</h4>
+                    <p className="text-sm text-gray-600">2025年6月27日（金）14:00-16:00</p>
+                    <p className="text-sm text-gray-500">会場：海老名市文化会館</p>
+                    <Button size="sm" className="mt-2 bg-blue-600 hover:bg-blue-700">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      予約する
+                    </Button>
+                  </div>
+                  <div className="border-l-4 border-purple-500 pl-4">
+                    <h4 className="font-semibold">遺言書作成セミナー</h4>
+                    <p className="text-sm text-gray-600">2025年7月4日（金）14:00-16:00</p>
+                    <p className="text-sm text-gray-500">会場：座間市立公民館</p>
+                    <Button size="sm" className="mt-2 bg-purple-600 hover:bg-purple-700">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      予約する
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <PlayCircle className="h-5 w-5 mr-2 text-blue-600" />
+                  オンライン相談予約
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-blue-800 mb-2">個別オンライン相談</h4>
+                    <p className="text-sm text-blue-600 mb-3">
+                      Zoom・Teams・Google Meetに対応<br />
+                      平日 9:00-18:00 / 土曜 9:00-15:00
+                    </p>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                      <PlayCircle className="h-4 w-4 mr-2" />
+                      オンライン相談を予約
+                    </Button>
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-green-800 mb-2">電話相談</h4>
+                    <p className="text-sm text-green-600 mb-3">
+                      お電話での無料相談<br />
+                      平日 9:00-18:00
+                    </p>
+                    <Button className="w-full bg-green-600 hover:bg-green-700">
+                      <Phone className="h-4 w-4 mr-2" />
+                      電話相談を予約
+                    </Button>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-purple-800 mb-2">来社相談</h4>
+                    <p className="text-sm text-purple-600 mb-3">
+                      大和市南林間の事務所にて<br />
+                      平日 9:00-18:00 / 土曜 9:00-15:00
+                    </p>
+                    <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                      <Building className="h-4 w-4 mr-2" />
+                      来社相談を予約
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Inheritance Diagnosis Tool */}
+      <section id="diagnosis-tool" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">相続診断ツール</h2>
+            <p className="text-lg text-gray-600">あなたの相続状況を詳しく診断し、最適なアドバイスを提供</p>
+          </div>
+          
+          <Card className="max-w-4xl mx-auto hover:shadow-lg transition-shadow">
+            <CardHeader className="text-center">
+              <CardTitle className="flex items-center justify-center">
+                <HelpCircle className="h-6 w-6 mr-2 text-blue-600" />
+                無料相続診断（約5分）
+              </CardTitle>
+              <CardDescription>
+                簡単な質問にお答えいただくだけで、あなたの相続に関する課題と対策をご提案します
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-gray-900">診断内容</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      相続税の概算額
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      必要な手続きの確認
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      節税対策の提案
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      専門家の紹介
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      スケジュール作成
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-gray-900">診断の流れ</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div>
+                      <span className="text-gray-600">基本情報の入力</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div>
+                      <span className="text-gray-600">財産状況の確認</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div>
+                      <span className="text-gray-600">家族構成の入力</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">4</div>
+                      <span className="text-gray-600">診断結果の表示</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 text-center">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                  <ArrowRight className="h-5 w-5 mr-2" />
+                  相続診断を開始する
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Blog & News Section */}
+      <section id="blog-news" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">ブログ・お知らせ</h2>
+            <p className="text-lg text-gray-600">相続に関する最新情報とお役立ち情報をお届け</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Badge className="w-fit mb-2">お知らせ</Badge>
+                <CardTitle className="text-lg">2025年度相続税制改正のポイント</CardTitle>
+                <CardDescription>2025年6月10日</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  2025年度の相続税制改正により、基礎控除額の見直しや新たな特例措置が導入されました。詳しく解説します。
+                </p>
+                <Button variant="outline" size="sm">
+                  <ExternalLink className="h-4 w-4 mr-1" />
+                  続きを読む
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Badge variant="secondary" className="w-fit mb-2">ブログ</Badge>
+                <CardTitle className="text-lg">不動産相続の注意点と対策</CardTitle>
+                <CardDescription>2025年6月8日</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  不動産を相続する際の評価方法、分割方法、税務上の注意点について、実例を交えて詳しく説明します。
+                </p>
+                <Button variant="outline" size="sm">
+                  <ExternalLink className="h-4 w-4 mr-1" />
+                  続きを読む
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Badge variant="outline" className="w-fit mb-2">事例紹介</Badge>
+                <CardTitle className="text-lg">大和市での相続手続き事例</CardTitle>
+                <CardDescription>2025年6月5日</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  大和市在住のお客様の相続手続きを、初回相談から完了まで時系列でご紹介します。
+                </p>
+                <Button variant="outline" size="sm">
+                  <ExternalLink className="h-4 w-4 mr-1" />
+                  続きを読む
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg">
+              <BookOpen className="h-5 w-5 mr-2" />
+              すべての記事を見る
+            </Button>
           </div>
         </div>
       </section>
