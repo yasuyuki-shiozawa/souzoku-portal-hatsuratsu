@@ -1,5 +1,7 @@
 # 相続ナビ - 株式会社はつらつ
 
+株式会社はつらつの相続関連不動産ポータルサイト - 企画書・設計書・プロトタイプを含む包括的なプロジェクト資料
+
 相続に関する専門的な知識とサービスを提供するウェブサイトです。
 
 ## 機能
@@ -19,6 +21,7 @@
 ## 開発
 
 ```bash
+cd souzoku-portal
 npm install
 npm run dev
 ```
@@ -26,6 +29,7 @@ npm run dev
 ## ビルド
 
 ```bash
+cd souzoku-portal
 npm run build
 ```
 
