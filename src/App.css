@@ -1,0 +1,53 @@
+/* カスタムスタイル */
+.bg-pastel-beige {
+  background-color: #F5F5DC;
+}
+
+.text-large {
+  font-size: 1.125rem;
+}
+
+.text-xlarge {
+  font-size: 1.25rem;
+}
+
+.heading-large {
+  font-size: 2.25rem;
+}
+
+.heading-medium {
+  font-size: 1.875rem;
+}
+
+.section-gradient {
+  background: linear-gradient(to right, #7CB9E8, #a8d1f5);
+}
+
+/* アニメーション効果 */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* ナビゲーションスタイル */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* レスポンシブ調整 */
+@media (min-width: 768px) {
+  .text-large {
+    font-size: 1.25rem;
+  }
+  
+  .heading-large {
+    font-size: 2.5rem;
+  }
+}
