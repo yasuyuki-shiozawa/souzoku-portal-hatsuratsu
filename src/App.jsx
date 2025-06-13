@@ -37,9 +37,64 @@ import './App.css';
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+
+  const sidebarItems = [
+    { id: 'hero', label: 'トップ', icon: Home },
+    { id: 'services', label: 'サービス', icon: Building },
+    { id: 'regional-info', label: '地域情報', icon: MapPin },
+    { id: 'tools', label: '便利ツール', icon: Calculator },
+    { id: 'experts', label: '専門家紹介', icon: Users },
+    { id: 'knowledge', label: '相続知識', icon: BookOpen },
+    { id: 'seminars', label: 'セミナー予約', icon: Calendar },
+    { id: 'diagnosis', label: '相続診断', icon: HelpCircle },
+    { id: 'blog', label: 'ブログ・お知らせ', icon: FileText },
+    { id: 'company', label: '会社概要', icon: Building },
+    { id: 'contact', label: 'お問い合わせ', icon: Phone }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Sidebar */}
+      <aside className={`fixed left-0 top-16 h-full bg-white shadow-lg border-r z-40 transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} w-64 hidden lg:block`}>
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-gray-900">ナビゲーション</h3>
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              <ChevronRight className={`h-5 w-5 transition-transform ${sidebarOpen ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+          <nav className="space-y-2">
+            {sidebarItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors group"
+                >
+                  <IconComponent className="h-5 w-5" />
+                  <span className="text-sm font-medium">{item.label}</span>
+                </a>
+              );
+            })}
+          </nav>
+        </div>
+      </aside>
+
+      {/* Sidebar Toggle Button (when collapsed) */}
+      {!sidebarOpen && (
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="fixed left-4 top-20 bg-blue-600 text-white p-2 rounded-lg shadow-lg z-40 hidden lg:block hover:bg-blue-700 transition-colors"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+      )}
+
       {/* Header */}
       <header className="bg-white shadow-sm border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,8 +168,10 @@ function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      {/* Main Content */}
+      <main className={`transition-all duration-300 ${sidebarOpen ? 'lg:ml-64' : 'lg:ml-0'}`}>
+        {/* Hero Section */}
+        <section id="hero" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -1093,6 +1150,7 @@ function App() {
           </div>
         </div>
       </footer>
+      </main>
     </div>
   );
 }
