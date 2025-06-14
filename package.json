@@ -1,6 +1,7 @@
 {
   "name": "souzoku-portal",
   "private": true,
+  "homepage": "https://yasuyuki-shiozawa.github.io/souzoku-portal-hatsuratsu/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
