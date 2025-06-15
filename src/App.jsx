@@ -1,21 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock,
-  Shield,
-  Award,
-  Building,
-  Car,
-  ChevronRight,
-  Menu,
-  X,
-  BookOpen,
-  Scale,
-  Calculator,
-  FileCheck
-} from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { Home, Users, FileText, Calendar, Phone, Mail, MapPin, Clock, Shield, Award, Building, Car, ChevronRight, Menu, X, BookOpen, Scale, Calculator, FileCheck } from 'lucide-react';
 import heroImage from './assets/hero-image.jpg';
 import SouzokuBasics from './components/SouzokuBasics.jsx';
 import SouzokuTax from './components/SouzokuTax.jsx';
