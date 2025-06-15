@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Badge } from '@/components/ui/badge.jsx';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
-import { 
-  Home, 
-  Users, 
-  FileText, 
-  Calendar, 
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
   Phone, 
   Mail, 
   MapPin, 
