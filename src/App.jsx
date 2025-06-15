@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button.jsx';
+import { Bimport { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';port { Button } from '@/components/ui/button.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
 import { 
