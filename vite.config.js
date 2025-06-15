@@ -5,7 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // GitHub Pagesのサブディレクトリに対応するため、baseを相対パスに設定
+  base: '/souzoku-portal-hatsuratsu/', // GitHub Pagesのサブディレクトリに対応するため、baseをリポジトリ名に設定
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
