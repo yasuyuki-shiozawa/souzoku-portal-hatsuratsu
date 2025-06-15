@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
+import {
   Phone, 
   Mail, 
   MapPin, 
@@ -14,7 +15,11 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
   BookOpen,
   Scale,
   Calculator,
-  FileCheck
+  FileCheck,
+  Home, // Homeアイコンを追加
+  Users, // Usersアイコンを追加
+  Calendar, // Calendarアイコンを追加
+  FileText // FileTextアイコンを追加
 } from 'lucide-react';
 import heroImage from './assets/hero-image.jpg';
 import SouzokuBasics from './components/SouzokuBasics.jsx';
@@ -348,7 +353,9 @@ function App() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
+              <Card 
+                className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group"
+              >
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
                   <div className="bg-primary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
@@ -362,14 +369,16 @@ function App() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
+              <Card 
+                className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group"
+              >
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
                   <div className="bg-primary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
                     <FileCheck className="h-8 w-8 text-primary-500" />
                   </div>
-                  <CardTitle className="text-xl">遺言書の作成</CardTitle>
-                  <CardDescription>遺言書の種類と作成のポイント</CardDescription>
+                  <CardTitle className="text-xl">遺言・遺産分割</CardTitle>
+                  <CardDescription>遺言書の作成と遺産分割協議のポイント</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <WillTestament />
@@ -383,61 +392,49 @@ function App() {
         <section id="seminars" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-neutral-800 mb-4 font-heading">相続セミナー情報</h2>
-              <p className="text-xl text-neutral-600">最新の相続情報を専門家から学びましょう</p>
+              <h2 className="text-3xl font-bold text-neutral-800 mb-4 font-heading">開催セミナー</h2>
+              <p className="text-xl text-neutral-600">相続に関する知識を深めるセミナーを定期開催</p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
-                  <CardTitle className="text-xl mb-2">【オンライン】相続税対策セミナー</CardTitle>
-                  <CardDescription className="flex items-center text-neutral-500">
-                    <Calendar size={16} className="mr-2" />
-                    2025年7月10日(水) 14:00-16:00
+                  <CardTitle className="text-2xl mb-2">【無料】はじめての相続セミナー</CardTitle>
+                  <CardDescription className="flex items-center text-neutral-600">
+                    <Clock className="h-4 w-4 mr-2" />
+                    2025年7月15日(火) 14:00-16:00
+                  </CardDescription>
+                  <CardDescription className="flex items-center text-neutral-600">
+                    <MapPin className="h-4 w-4 mr-2" />
+                    オンライン開催 (Zoom)
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600 mb-4">相続税の基礎から最新の節税対策まで、具体的な事例を交えて解説します。</p>
-                  <Badge variant="secondary" className="bg-green-100 text-green-800">参加費無料</Badge>
-                  <Button className="w-full mt-4 bg-primary-400 hover:bg-primary-500 text-white shadow-soft">
-                    詳細・お申し込み
+                  <p className="text-neutral-700 mb-4">相続の基本的な流れ、必要書類、よくあるトラブル事例などを分かりやすく解説します。これから相続について学びたい方に最適です。</p>
+                  <Button className="bg-primary-400 hover:bg-primary-500 text-white shadow-soft">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    セミナーに申し込む
                   </Button>
                 </CardContent>
               </Card>
-
               <Card className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
-                  <CardTitle className="text-xl mb-2">【会場開催】不動産相続の落とし穴</CardTitle>
-                  <CardDescription className="flex items-center text-neutral-500">
-                    <Calendar size={16} className="mr-2" />
-                    2025年7月25日(金) 10:00-12:00
+                  <CardTitle className="text-2xl mb-2">【無料】相続税対策セミナー</CardTitle>
+                  <CardDescription className="flex items-center text-neutral-600">
+                    <Clock className="h-4 w-4 mr-2" />
+                    2025年8月10日(土) 10:00-12:00
+                  </CardDescription>
+                  <CardDescription className="flex items-center text-neutral-600">
+                    <MapPin className="h-4 w-4 mr-2" />
+                    会場開催 (東京都内)
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600 mb-4">不動産が絡む相続で注意すべき点や、共有名義問題の解決策を解説します。</p>
-                  <Badge variant="secondary" className="bg-blue-100 text-blue-800">限定20名</Badge>
-                  <Button className="w-full mt-4 bg-primary-400 hover:bg-primary-500 text-white shadow-soft">
-                    詳細・お申し込み
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
-                <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
-                <CardHeader>
-                  <CardTitle className="text-xl mb-2">【オンライン】家族信託の活用</CardTitle>
-                  <CardDescription className="flex items-center text-neutral-500">
-                    <Calendar size={16} className="mr-2" />
-                    2025年8月5日(火) 15:00-17:00
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-neutral-600 mb-4">高齢化社会における財産管理の新しい形、家族信託について学びます。</p>
-                  <Badge variant="secondary" className="bg-purple-100 text-purple-800">要予約</Badge>
-                  <Button className="w-full mt-4 bg-primary-400 hover:bg-primary-500 text-white shadow-soft">
-                    詳細・お申し込み
+                  <p className="text-neutral-700 mb-4">相続税の計算方法、控除の種類、生前贈与の活用など、具体的な節税対策を税理士が解説します。</p>
+                  <Button className="bg-primary-400 hover:bg-primary-500 text-white shadow-soft">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    セミナーに申し込む
                   </Button>
                 </CardContent>
               </Card>
@@ -450,55 +447,46 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-neutral-800 mb-4 font-heading">専門家紹介</h2>
-              <p className="text-xl text-neutral-600">経験豊富な専門家が、あなたの相続を強力にサポート</p>
+              <p className="text-xl text-neutral-600">相続のプロフェッショナルがあなたの悩みを解決</p>
             </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card className="text-center hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
-                  <img 
-                    src="https://via.placeholder.com/150" 
-                    alt="弁護士 鈴木太郎" 
-                    className="rounded-full w-32 h-32 mx-auto mb-4 object-cover border-4 border-primary-200 group-hover:border-primary-400 transition-colors"
-                  />
-                  <CardTitle className="text-xl">鈴木 太郎</CardTitle>
-                  <CardDescription className="text-primary-500 font-semibold">弁護士</CardDescription>
+                  <div className="bg-primary-100 p-4 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4">
+                    <img src="https://via.placeholder.com/96" alt="専門家1" className="rounded-full" />
+                  </div>
+                  <CardTitle className="text-xl">山田 太郎</CardTitle>
+                  <CardDescription>行政書士</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600">相続問題全般、特に遺産分割協議や紛争解決に強み。</p>
+                  <p className="text-neutral-700 text-lg">遺産分割協議書作成、相続関係説明図作成など、相続手続き全般をサポートします。</p>
                 </CardContent>
               </Card>
-
               <Card className="text-center hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
-                  <img 
-                    src="https://via.placeholder.com/150" 
-                    alt="税理士 佐藤花子" 
-                    className="rounded-full w-32 h-32 mx-auto mb-4 object-cover border-4 border-primary-200 group-hover:border-primary-400 transition-colors"
-                  />
+                  <div className="bg-primary-100 p-4 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4">
+                    <img src="https://via.placeholder.com/96" alt="専門家2" className="rounded-full" />
+                  </div>
                   <CardTitle className="text-xl">佐藤 花子</CardTitle>
-                  <CardDescription className="text-primary-500 font-semibold">税理士</CardDescription>
+                  <CardDescription>弁護士</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600">相続税申告、生前贈与、事業承継など税務全般を担当。</p>
+                  <p className="text-neutral-700 text-lg">遺産分割調停・審判、遺留分侵害額請求など、法的な問題解決を支援します。</p>
                 </CardContent>
               </Card>
-
               <Card className="text-center hover:shadow-card transition-all duration-300 border-neutral-200 rounded-xl overflow-hidden group">
                 <div className="h-1 bg-primary-400 w-full group-hover:bg-primary-500 transition-colors"></div>
                 <CardHeader>
-                  <img 
-                    src="https://via.placeholder.com/150" 
-                    alt="司法書士 田中一郎" 
-                    className="rounded-full w-32 h-32 mx-auto mb-4 object-cover border-4 border-primary-200 group-hover:border-primary-400 transition-colors"
-                  />
-                  <CardTitle className="text-xl">田中 一郎</CardTitle>
-                  <CardDescription className="text-primary-500 font-semibold">司法書士</CardDescription>
+                  <div className="bg-primary-100 p-4 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4">
+                    <img src="https://via.placeholder.com/96" alt="専門家3" className="rounded-full" />
+                  </div>
+                  <CardTitle className="text-xl">田中 健太</CardTitle>
+                  <CardDescription>税理士</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-neutral-600">不動産登記、遺言書作成、成年後見制度に詳しい。</p>
+                  <p className="text-neutral-700 text-lg">相続税申告、税務調査対応、節税対策など、相続税に関するあらゆるご相談に対応します。</p>
                 </CardContent>
               </Card>
             </div>
@@ -512,24 +500,18 @@ function App() {
               <h2 className="text-3xl font-bold text-neutral-800 mb-4 font-heading">会社概要</h2>
               <p className="text-xl text-neutral-600">株式会社はつらつについて</p>
             </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-neutral-800 mb-4">株式会社はつらつ</h3>
-                <p className="text-neutral-600 mb-4">私たちは、相続に関するお客様の不安を解消し、円滑な相続をサポートすることを使命としています。専門家ネットワークと丁寧なサポートで、お客様一人ひとりに最適なソリューションを提供します。</p>
-                <ul className="space-y-3 text-neutral-700">
-                  <li className="flex items-center"><MapPin size={20} className="mr-3 text-primary-500" />東京都渋谷区恵比寿1-1-1</li>
-                  <li className="flex items-center"><Phone size={20} className="mr-3 text-primary-500" />03-1234-5678</li>
-                  <li className="flex items-center"><Mail size={20} className="mr-3 text-primary-500" />info@hatsuratsu.co.jp</li>
-                  <li className="flex items-center"><Clock size={20} className="mr-3 text-primary-500" />営業時間: 平日 9:00 - 18:00</li>
-                </ul>
+                <img src="https://via.placeholder.com/600x400" alt="会社外観" className="rounded-xl shadow-card" />
               </div>
               <div>
-                <img 
-                  src="https://via.placeholder.com/600x400" 
-                  alt="会社外観" 
-                  className="rounded-xl shadow-card"
-                />
+                <h3 className="text-2xl font-bold text-neutral-800 mb-4">株式会社はつらつ</h3>
+                <p className="text-neutral-700 mb-4">私たちは、相続に関するお客様の不安を解消し、円滑な相続をサポートすることを使命としています。専門家ネットワークと長年の経験を活かし、お客様一人ひとりに寄り添った最適なソリューションを提供します。</p>
+                <ul className="space-y-2 text-neutral-700">
+                  <li className="flex items-center"><MapPin className="h-5 w-5 mr-2 text-primary-400" /> 東京都渋谷区</li>
+                  <li className="flex items-center"><Phone className="h-5 w-5 mr-2 text-primary-400" /> 03-1234-5678</li>
+                  <li className="flex items-center"><Mail className="h-5 w-5 mr-2 text-primary-400" /> info@hatsuratsu.co.jp</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -540,46 +522,21 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-neutral-800 mb-4 font-heading">お問い合わせ</h2>
-              <p className="text-xl text-neutral-600">相続に関するご相談、セミナーのお申し込みなど、お気軽にお問い合わせください。</p>
+              <p className="text-xl text-neutral-600">相続に関するご質問・ご相談はこちらから</p>
             </div>
-            
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-card">
               <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-neutral-700 text-lg font-medium mb-2">お名前</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
-                    placeholder="お名前を入力してください"
-                  />
+                  <input type="text" id="name" className="w-full p-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400" placeholder="お名前を入力してください" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-neutral-700 text-lg font-medium mb-2">メールアドレス</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
-                    placeholder="メールアドレスを入力してください"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-neutral-700 text-lg font-medium mb-2">電話番号 (任意)</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
-                    placeholder="電話番号を入力してください"
-                  />
+                  <input type="email" id="email" className="w-full p-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400" placeholder="メールアドレスを入力してください" />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-neutral-700 text-lg font-medium mb-2">お問い合わせ内容</label>
-                  <textarea 
-                    id="message" 
-                    rows="5" 
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
-                    placeholder="お問い合わせ内容を具体的にご記入ください"
-                  ></textarea>
+                  <textarea id="message" rows="5" className="w-full p-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400" placeholder="お問い合わせ内容を入力してください"></textarea>
                 </div>
                 <Button type="submit" className="w-full bg-primary-400 hover:bg-primary-500 text-white shadow-soft">
                   送信する
@@ -592,12 +549,7 @@ function App() {
         {/* フッター */}
         <footer className="bg-neutral-800 text-white py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex flex-col md:flex-row justify-center items-center mb-8 space-y-4 md:space-y-0 md:space-x-8">
-              <a href="#" className="hover:text-primary-400 transition-colors">プライバシーポリシー</a>
-              <a href="#" className="hover:text-primary-400 transition-colors">利用規約</a>
-              <a href="#" className="hover:text-primary-400 transition-colors">サイトマップ</a>
-            </div>
-            <p className="text-neutral-400">&copy; 2025 株式会社はつらつ. All rights reserved.</p>
+            <p>&copy; 2025 株式会社はつらつ. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -605,6 +557,6 @@ function App() {
   );
 }
 
-export default HomePage;
+export default App;
 
 
