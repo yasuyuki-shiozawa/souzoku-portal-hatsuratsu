@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
@@ -31,7 +31,6 @@ import WillTestament from './components/WillTestament.jsx';
 import './App.css';
 
 function HomePage() {
-  const navigate = useNavigate();
   const [showSidebar, setShowSidebar] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
